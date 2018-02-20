@@ -8,7 +8,7 @@
         <option *ngFor="let date of (dates | async)" [ngValue]="date" class="text">{{date}}</option>
       </select>
     </div>
-    <div *ngIf="(reports.length > 0 | async)" class="division-separator">
+    <div *ngIf="(reports != null) && (reports | async).length > 0" class="division-separator">
       <table>
         <tr>
           <th class="website-column data-column">Website:</th>

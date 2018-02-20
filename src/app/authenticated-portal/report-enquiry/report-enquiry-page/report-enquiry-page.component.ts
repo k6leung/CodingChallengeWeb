@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {ReportEnquiryService} from "../report-enquiry.service";
 import {SiteReport} from "../site-reports/site-report";
+import {Observable} from "rxjs/Observable";
+import 'rxjs/add/observable/of';
 
 @Component({
   selector: 'app-report-enquiry-page',
@@ -11,24 +13,22 @@ export class ReportEnquiryPageComponent implements OnInit {
 
   selectedDate: string;
 
-  dates:string[];
+  dates:Observable<string[]>;
 
-  reports: SiteReport[];
+  reports: Observable<SiteReport[]>;
 
   constructor(private reportEnquiryService: ReportEnquiryService) { }
 
   ngOnInit() {
     this.selectedDate = "";
-    this.reports = [];
+    this.reports = null;
 
-    this.reportEnquiryService.getAllDates(this.getAllDatesSuccessCallBack.bind(this),
-                                            this.getAllDatesFailCallBack);
+    this.dates = this.reportEnquiryService.getAllDates(this.getAllDatesSuccessCallBack.bind(this),
+                                                        this.getAllDatesFailCallBack);
   }
 
   getAllDatesSuccessCallBack(datesResponse: string[]) {
     console.log("ReportEnquiryPageComponent.getAllDatesSuccessCallBack() - datesResponse: " + JSON.stringify(datesResponse));
-
-    this.dates = datesResponse;
   }
 
   getAllDatesFailCallBack(error: any) {
@@ -43,16 +43,16 @@ export class ReportEnquiryPageComponent implements OnInit {
 
   getReportByDates() {
     if((this.selectedDate) && !(/^\s*$/.test(this.selectedDate))) {
-      this.reportEnquiryService.getReportsByDate(this.selectedDate,
+      this.reports = this.reportEnquiryService.getReportsByDate(this.selectedDate,
                                                   this.getReportByDatesSuccessCallBack.bind(this),
                                                   this.getReportByDatesFailCallBack);
+    } else {
+      this.reports = Observable.of([]);
     }
   }
 
   getReportByDatesSuccessCallBack(response: SiteReport[]) {
     console.log("ReportEnquiryPageComponent.getReportByDatesSuccessCallBack() - response: " + JSON.stringify(response));
-
-    this.reports = response;
   }
 
   getReportByDatesFailCallBack(error: any) {

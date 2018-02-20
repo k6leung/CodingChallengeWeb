@@ -67,7 +67,7 @@ export class AuthenticationService {
     let logoutUri = environment.webServiceProtocol + "://" +
                       environment.authenticationServiceHost + ":" +
                       environment.authenticationServicePort +
-                      "/api/logout/" + token;
+                      "/api/revoke/" + token;
     console.log("AuthenticationService.logout() - logoutUri: " + logoutUri);
 
     this.http.delete<LogoutResponse>(logoutUri).subscribe(
