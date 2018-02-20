@@ -1,0 +1,13 @@
+.header-div {
+  float:right;
+}
+
+.text {
+  font-family: Arial;
+}
+
+.action-link {
+  cursor:pointer;
+  color:blue;
+  text-decoration:underline;
+}

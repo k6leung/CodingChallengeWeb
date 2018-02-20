@@ -1,0 +1,10 @@
+.header {
+  float:left;
+  width:100%;
+  border-bottom:1px solid;
+}
+
+.body {
+  float:left;
+  width:100%;
+}

@@ -1,0 +1,12 @@
+.text {
+  font-family: Arial;
+}
+
+.input-ui-label-container {
+  width:80px;
+}
+
+.input-ui-group-container {
+  margin-left:5px;
+  margin-bottom:2px;
+}

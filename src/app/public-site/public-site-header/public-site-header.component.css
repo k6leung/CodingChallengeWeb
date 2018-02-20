@@ -1,0 +1,12 @@
+.header-div {
+  float:right;
+}
+
+.header-div-item {
+  float:left;
+  margin-left: 5px;
+}
+
+.text {
+  font-family: Arial;
+}

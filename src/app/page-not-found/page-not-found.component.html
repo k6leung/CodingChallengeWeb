@@ -1,0 +1,11 @@
+<div class="header">
+  <div *ngIf="isUserLoggedIn">
+    <app-authenticated-portal-header></app-authenticated-portal-header>
+  </div>
+  <div *ngIf="!isUserLoggedIn">
+    <app-public-site-header></app-public-site-header>
+  </div>
+</div>
+<div id="commonSiteContent">
+  <h2 class="text">Page not found!</h2>
+</div>

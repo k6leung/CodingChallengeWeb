@@ -1,0 +1,27 @@
+.text {
+  font-family: Arial;
+}
+
+.input-group {
+  margin-bottom: 5px;
+}
+
+.division-separator {
+  border-top: #a9a9a9 solid 1px;
+}
+
+.data-column {
+  text-align: center;
+}
+
+.website-column {
+  width:150px;
+}
+
+.visit-column {
+  width:100px;
+}
+
+.visit-date-column {
+  width:150px;
+}

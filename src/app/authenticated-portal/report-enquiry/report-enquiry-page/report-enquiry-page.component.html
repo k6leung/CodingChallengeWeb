@@ -1,0 +1,26 @@
+<div>
+  <h2 class="text">Website Visit Report Enquiry</h2>
+  <div>
+    <div class="input-group">
+      <label class="text">Select a date to enquire:</label>
+      <select id="dateSelect" name="dateSelect" [(ngModel)]="selectedDate" (change)="getReportByDates()">
+        <option value="" class="text">Please select...</option>
+        <option *ngFor="let date of (dates | async)" [ngValue]="date" class="text">{{date}}</option>
+      </select>
+    </div>
+    <div *ngIf="(reports.length > 0 | async)" class="division-separator">
+      <table>
+        <tr>
+          <th class="website-column data-column">Website:</th>
+          <th class="visit-column data-column">Visits:</th>
+          <th class="visit-date-column data-column">Visit Date:</th>
+        </tr>
+        <tr *ngFor="let report of (reports | async)">
+          <td class="website-column data-column">{{report.website}}</td>
+          <td class="visit-column data-column">{{report.visit}}</td>
+          <td class="visit-date-column data-column">{{report.visitDate | date: 'yyyy-MM-dd'}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

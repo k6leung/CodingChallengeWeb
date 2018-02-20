@@ -4,5 +4,10 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  webServiceProtocol: "http",
+  authenticationServiceHost: "localhost",
+  authenticationServicePort: 8081,
+  reportServiceHost: "localhost",
+  reportServicePort: 8082
 };

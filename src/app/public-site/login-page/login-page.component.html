@@ -1,0 +1,37 @@
+<div>
+  <h2 class="text">Login</h2>
+  <div>
+    <form [formGroup]="loginForm">
+      <div class="input-ui-group-container">
+        <div>
+          <div class="input-ui-label-container">
+            <label for="username" class="text">Username:</label>
+          </div>
+          <div>
+            <input id="username" name="username" type="text" formControlName="username" />
+          </div>
+        </div>
+        <div *ngIf="loginForm.controls['username'].dirty && loginForm.controls['username'].errors && loginForm.controls['username'].errors.required">
+          <span class="text">Please enter username</span>
+        </div>
+      </div>
+      <div class="input-ui-group-container">
+        <div>
+          <div class="input-ui-label-container">
+            <label for="password" class="text">Password:</label>
+          </div>
+          <div>
+            <input id="password" name="password" type="password" formControlName="password" />
+          </div>
+        </div>
+        <div *ngIf="loginForm.controls['password'].dirty && loginForm.controls['password'].errors && loginForm.controls['password'].errors.required">
+          <span class="text">Please enter password</span>
+        </div>
+      </div>
+    </form>
+    <div class="input-ui-group-container">
+      <button type="submit" (click)="login()" [disabled]="loginForm.invalid" class="text">Login</button>
+      <button type="button" (click)="back()" class="text">Back</button>
+    </div>
+  </div>
+</div>
